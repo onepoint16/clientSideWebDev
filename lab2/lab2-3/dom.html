@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Working with the DOM</title>
+    <style type="text/css">
+        #domview  
+        {
+            position: fixed; 
+            top: 40px; 
+            left: 40px; 
+            width: 200px; 
+            border: solid 2px gray; 
+            padding: 5px;
+            background-color:#ffffaa;
+            visibility:hidden
+        }
+        #redcell
+        {
+            color:Red;
+        }
+    </style>
+
+</head>
+<body>
+<p id="paragraph1">
+
+ This page contains some elements typically found in HTML pages.
+</p>
+<p id="paragraph2">
+    <img id="Img1" src="images/alpine.jpg"> 
+    <img src="images/patagonia.jpg"> 
+</p>
+<table id="table1" width="100%" border="1">
+  <tr>
+    <td>table row 1</td>
+    <td>table row 1</td>
+
+  </tr>
+  <tr id="row2">
+    <td>table row 2</td>
+    <td>table row 2</td>
+  </tr>
+</table>
+<p id="paragraph3">
+  <input id="input1" type="text" name="input1" value = "input1">
+
+  <br>
+  <input id="input2" type="text" name="input2" value = "input2">
+</p>
+<p id="paragraph4">
+  <select id ="select1" name="select">
+    <option value="a">a</option>
+    <option value="b">b</option>
+  </select>
+
+</p>
+<div>
+  <button id="listdom">List DOM elements</button>
+  <button id="hidedom">Hide DOM elements</button>
+  <button id="addpara">Add a new element</button>
+  <button id="altercell"">Alter an element</button>
+</div>
+<div> 
+  <textarea id="textarea1" cols="40" rows="5" >Type new paragraph text here...</textarea>
+</div>
+<div id="domview">
+</div>
+<script type="text/javascript" src="js/dom.js" />
+</body>
+</html>
