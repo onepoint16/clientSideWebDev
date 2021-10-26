@@ -36,3 +36,22 @@
     transform: rotate(360deg);
   }
 }
+
+.appStyle {
+  border-radius: 25px;
+  border: 1px solid #cccccc;
+  padding: 1%;
+  margin: 2%;
+  margin-left: 10%;
+  width: 80%;
+  background-color: #cccccc;
+}
+
+.divStyle {
+  border-radius: 25px;
+  border: 1px solid #22e964;
+  padding: 1%;
+  margin: 2%;
+  height: 50%;
+  background-color: #f0f0f0;
+}

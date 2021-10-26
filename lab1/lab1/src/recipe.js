@@ -9,5 +9,5 @@ class Recipe extends Component { render() {
         </div>
         ); 
     }
-  }
- export default Recipe;
+}
+export default Recipe;
