@@ -1,0 +1,16 @@
+.product span {
+font-size: 16px;
+}
+
+.wrapper {
+padding: 20px;
+font-size: 18px;
+}
+
+.wrapper button {
+font-size: 12px;
+background: rgb(203, 252, 196);
+border: rgb(253, 167, 37) solid 1px;
+margin: 2px;
+padding: 2px;
+}
