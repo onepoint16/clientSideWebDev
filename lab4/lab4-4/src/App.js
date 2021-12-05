@@ -14,74 +14,74 @@ function App() {
   const fetchData = useCallback(() => {
     const queryText = JSON.stringify(query);
       fetch(datasource.baseURL, {
-       method: "POST",
-       headers: datasource.headers,
-       body: queryText,
-     }).then((response) => response.json())
-       .then((data) => {
-         const datalist = data.data.list;
-          setToDoList(datalist);
-       })
-       .catch((err) => {
-         console.log(err);
-       });
-   }, []);
- 
-   useEffect(() => {
-     fetchData();
-   }, [fetchData]);
+      method: "POST",
+      headers: datasource.headers,
+      body: queryText,
+    }).then((response) => response.json())
+      .then((data) => {
+        const datalist = data.data.list;
+        setToDoList(datalist);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
-   function handleClear() {
-    const clearQuery = {
-     query: `
-     mutation{clearAll {
-      todo
-      done
-    }}
-       `,
- };
-    const queryText = JSON.stringify(clearQuery);
-    let cleared = [{"todo": "", "done": ""}];
-     fetch(datasource.baseURL, {
-       method: "POST",
-       headers: datasource.headers,
-       body:queryText,
-     }).then((response) => response.json())
-     .then(setToDoList(cleared))
-       .catch((err) => {
-         console.log(err);
-       });
-   };
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
 
-   const addTask = (userInput ) => {
-     const dataQuery = {
-     query: `
-     mutation {addtodo(
-         input: {todo:"${userInput}", 
-           done:"false" }
-       ){todo,done}}
-       `,
- };
-    const queryText = JSON.stringify(dataQuery);
-     fetch(datasource.baseURL, {
-       method: "POST",
-       headers: datasource.headers,
-       body:queryText,
-     }).then((response) => response.json())
-     .then(fetchData)
-       .catch((err) => {
-         console.log(err);
-       });
-   };
+  function handleClear() {
+  const clearQuery = {
+    query: `
+    mutation{clearAll {
+    todo
+    done
+  }}
+      `,
+};
+  const queryText = JSON.stringify(clearQuery);
+  let cleared = [{"todo": "", "done": ""}];
+    fetch(datasource.baseURL, {
+      method: "POST",
+      headers: datasource.headers,
+      body:queryText,
+    }).then((response) => response.json())
+    .then(setToDoList(cleared))
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
- const handleToggle = (id) => {
-    let mapped = toDoList.map(task => {
-    let taskProgress="";
-    if(task.todo === String(id)){
-      if(task.done==="true"){ taskProgress="false" }
-       else{
-         taskProgress="true" }
-     }
+  const addTask = (userInput ) => {
+    const dataQuery = {
+    query: `
+    mutation {addtodo(
+        input: {todo:"${userInput}", 
+          done:"false" }
+      ){todo,done}}
+      `,
+};
+  const queryText = JSON.stringify(dataQuery);
+    fetch(datasource.baseURL, {
+      method: "POST",
+      headers: datasource.headers,
+      body:queryText,
+    }).then((response) => response.json())
+    .then(fetchData)
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+const handleToggle = (id) => {
+  let mapped = toDoList.map(task => {
+  let taskProgress="";
+  if(task.todo === String(id)){
+    if(task.done==="true"){ taskProgress="false" }
+      else{
+        taskProgress="true" }
+    }
     return task.todo === String(id) ? { ...task, done: taskProgress} : { ...task};
   });
   setToDoList(mapped);
@@ -97,7 +97,7 @@ function App() {
     });
   }
 
- return (
+return (
     <div className="App">
       <Header />
       <ToDoForm addTask={addTask}/>
@@ -107,5 +107,5 @@ function App() {
   );
 }
 
- 
+
 export default App;
