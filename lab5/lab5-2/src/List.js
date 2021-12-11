@@ -14,7 +14,9 @@ const List = ({ items }) => {
     return (
         <div>
             { items.map(item => (
-                <div key={item.id} className='list'>
+                <div
+                key={item.id}
+                className='item'>
                     { item.body }
                 </div>
             )) }
